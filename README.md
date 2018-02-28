@@ -51,4 +51,5 @@ http://www.jen-pin.com.tw/doc/2013110810042950
 
 ## Simulation
 
+- [Jupyter notebook](simulation.ipynb)
 - Check [result](https://leoluyi.github.io/huluwen/vis.html)
