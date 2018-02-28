@@ -48,3 +48,7 @@ http://www.jen-pin.com.tw/doc/2013110810042950
 - 和局的機率 (results: 3人)
 - 口訣是否跟位置機率有關係? (xx)
 - 條件機率：$P(贏的機率 \mid 首次擲骰子點數) = P(贏的機率)$ 2人
+
+## Simulation
+
+- Check [result](vis.html)
