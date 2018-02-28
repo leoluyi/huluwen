@@ -53,3 +53,5 @@ http://www.jen-pin.com.tw/doc/2013110810042950
 
 - [Jupyter notebook](simulation.ipynb)
 - Check [result](https://leoluyi.github.io/huluwen/vis.html)
+
+![screenshot_ipynb](https://user-images.githubusercontent.com/8746961/36772557-bbf92ad4-1c90-11e8-9ded-d70bb90821da.png)
