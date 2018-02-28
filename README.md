@@ -1,10 +1,8 @@
-# 葫蘆問
-
-葫蘆問，又稱葫蘆運、葫蘆笨，是一種中國傳統擲賽遊戲，各地圖案與稱呼各有不同，常作為新春親友聚會時的遊戲。
+<h1>葫蘆問<img alt="台南安平的葫蘆問" src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/%E5%AE%89%E5%B9%B3%E7%9A%84%E8%91%AB%E8%98%86%E5%95%8F.png/350px-%E5%AE%89%E5%B9%B3%E7%9A%84%E8%91%AB%E8%98%86%E5%95%8F.png' align='right' width="80px"></h1>
 
 [Wikipedia](https://zh.wikipedia.org/zh-tw/%E8%91%AB%E8%98%86%E5%95%8F)
 
-![台南安平的葫蘆問](https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/%E5%AE%89%E5%B9%B3%E7%9A%84%E8%91%AB%E8%98%86%E5%95%8F.png/350px-%E5%AE%89%E5%B9%B3%E7%9A%84%E8%91%AB%E8%98%86%E5%95%8F.png)
+葫蘆問，又稱葫蘆運、葫蘆笨，是一種中國傳統擲賽遊戲，各地圖案與稱呼各有不同，常作為新春親友聚會時的遊戲。
 
 過去中國農曆新年時，人們會玩一種以年畫方式印製的擲賽遊戲，這類遊戲棋盤為旋螺狀，通常除終點外，其餘棋位都是葫蘆、八仙、生肖等兩兩成雙的圖形，不同於陞官圖依采色決定進退，而是依骰點前進到某圖後，再移動同圖的位置上，機制與蛇梯棋相同，但蛇梯棋的兩圖差距是平均，而像是鹿港的葫蘆問差距不同，以差11格最多，但越近終點會越小，使玩家在遊戲後期差距減少。
 
@@ -40,7 +38,6 @@ http://www.jen-pin.com.tw/doc/2013110810042950
 
 例如「肥十滿天下」，意思就是在第一輪玩的時候，如果丟出九點，可以前進到37漢鍾離(阿肥)的位置，如果下一輪可以丟出十點，就可以贏得比賽，於是他的對手這時就會喊出相反的話「肥九漏屎」，意思是希望他丟出九點，把他逼出內圈，不讓他贏。
 
-
 ## 議題
 
 - 結束局數機率分佈 (模擬 10,000) x 玩家人數影響 (2~5 人)
@@ -55,3 +52,11 @@ http://www.jen-pin.com.tw/doc/2013110810042950
 - Check [result](https://leoluyi.github.io/huluwen/vis.html)
 
 ![screenshot_ipynb](https://user-images.githubusercontent.com/8746961/36772557-bbf92ad4-1c90-11e8-9ded-d70bb90821da.png)
+
+## Requirements
+
+- Python 3.6+
+- numpy 1.14.0+
+- matplotlib 2.0.2+
+- tqdm 4.19.5+
+- pandas 0.20.3+
