@@ -1,5 +1,5 @@
 ---
-title: "Visualization of simulation"
+title: "Visualization of HUluwen simulation"
 output: html_document
 editor_options: 
   chunk_output_type: console
@@ -17,7 +17,7 @@ library(magrittr)
 old <- theme_set(theme_light())
 ```
 
-Load date
+Load data
 
 ```{r load data}
 iter_2p <- fread("simulation_history/iter_records_2p.csv")
@@ -50,10 +50,10 @@ turn_2p[, .(iter,
 
 ## 2P
 
-```{r iter 2p}
+```{r iter 2p, fig.width = 10, fig.height = 6}
 p <- ggplot(iter_2p, aes(end_rounds)) +
-  geom_histogram(binwidth = 5, color = "white") +
-  scale_x_continuous(breaks = seq(0, 200, 10)) +
+  geom_histogram(binwidth = 1, color = "white") +
+  scale_x_continuous(breaks = seq(0, 200, 5)) +
   ggtitle("Rounds Before Game Ends, 2 players",
           "(10,000 iters simulation)") +
   theme_light()
@@ -65,7 +65,7 @@ iter_2p[, max(end_rounds)]  # max rounds
 iter_2p[, min(end_rounds)]  # min rounds
 ```
 
-```{r win 2p}
+```{r win 2p, fig.width = 4, fig.height = 4}
 p <- ggplot(iter_2p, aes(winner)) +
   geom_bar(color = "white", width = 0.5) +
   ggtitle("Winning distribution, 2 players",
@@ -76,7 +76,7 @@ p %>% ggsave(filename = "img/winer_2p.png",
              width = 4, height = 4)
 ```
 
-```{r turn 2p}
+```{r turn 2p, fig.width = 6, fig.height = 8}
 d <- turn_2p[, .(
   iter = c(iter, iter),
   position = c(old_position, old_position) %>%
@@ -125,8 +125,8 @@ p %>% ggsave(filename = "img/win_first_roll_2p.png",
 
 ```{r iter 3p, fig.width = 10, fig.height = 6}
 p <- ggplot(iter_3p, aes(end_rounds)) +
-  geom_histogram(binwidth = 5, color = "white") +
-  scale_x_continuous(breaks = seq(0, 200, 10)) +
+  geom_histogram(binwidth = 1, color = "white") +
+  scale_x_continuous(breaks = seq(0, 200, 5)) +
   ggtitle("Rounds Before Game Ends, 3 players)",
           "(10,000 iters simulation)") +
   theme_light()
@@ -134,8 +134,8 @@ p
 p %>% ggsave(filename = "img/rounds_dist_3p.png",
              width = 10, height = 6)
 
-iter_2p[, max(end_rounds)]  # max rounds
-iter_2p[, min(end_rounds)]  # min rounds
+iter_3p[, max(end_rounds)]  # max rounds
+iter_3p[, min(end_rounds)]  # min rounds
 ```
 
 ```{r win 3p, fig.width = 4, fig.height = 4}
@@ -192,6 +192,7 @@ p <- ggplot(d, aes(first_roll, win_prob)) +
   scale_x_continuous(breaks = seq(2, 12, 1)) +
   labs(title = "Winning probability by first dice roll, 3 players",
        subtitle = "(10,000 iters simulation, player 'A')")
+p
 p %>% ggsave(filename = "img/win_first_roll_3p.png",
              width = 8, height = 5)
 ```
@@ -200,8 +201,8 @@ p %>% ggsave(filename = "img/win_first_roll_3p.png",
 
 ```{r iter 4p, fig.width = 10, fig.height = 6}
 p <- ggplot(iter_4p, aes(end_rounds)) +
-  geom_histogram(binwidth = 5, color = "white") +
-  scale_x_continuous(breaks = seq(0, 200, 10)) +
+  geom_histogram(binwidth = 1, color = "white") +
+  scale_x_continuous(breaks = seq(0, 200, 5)) +
   ggtitle("Rounds Before Game Ends, 4 players)",
           "(10,000 iters simulation)") +
   theme_light()
@@ -209,8 +210,8 @@ p
 p %>% ggsave(filename = "img/rounds_dist_4p.png",
              width = 10, height = 6)
 
-iter_2p[, max(end_rounds)]  # max rounds
-iter_2p[, min(end_rounds)]  # min rounds
+iter_4p[, max(end_rounds)]  # max rounds
+iter_4p[, min(end_rounds)]  # min rounds
 ```
 
 ```{r win 4p, fig.width = 4, fig.height = 4}
@@ -267,6 +268,84 @@ p <- ggplot(d, aes(first_roll, win_prob)) +
   scale_x_continuous(breaks = seq(2, 12, 1)) +
   labs(title = "Winning probability by first dice roll, 4 players",
        subtitle = "(10,000 iters simulation, player 'A')")
+p
 p %>% ggsave(filename = "img/win_first_roll_4p.png",
+             width = 8, height = 5)
+```
+
+## 5P
+
+```{r iter 5p, fig.width = 10, fig.height = 6}
+p <- ggplot(iter_5p, aes(end_rounds)) +
+  geom_histogram(binwidth = 1, color = "white") +
+  scale_x_continuous(breaks = seq(0, 200, 5)) +
+  ggtitle("Rounds Before Game Ends, 4 players)",
+          "(10,000 iters simulation)") +
+  theme_light()
+p
+p %>% ggsave(filename = "img/rounds_dist_5p.png",
+             width = 10, height = 6)
+
+iter_5p[, max(end_rounds)]  # max rounds
+iter_5p[, min(end_rounds)]  # min rounds
+```
+
+```{r win 5p, fig.width = 4, fig.height = 4}
+d <- iter_5p[, .(winner = ifelse(winner == "", "tie", winner))]
+p <- ggplot(d, aes(winner)) +
+  geom_bar(color = "white", width = 0.8) +
+  ggtitle("Winning distribution, 4 players",
+          "(10,000 iters simulation)") +
+  theme_light()
+p
+p %>% ggsave(filename = "img/winer_5p.png",
+             width = 4, height = 4)
+```
+
+```{r turn 5p, fig.width=6, fig.height=8}
+d <- turn_5p[, .(
+  iter = c(iter, iter),
+  position = c(old_position, old_position) %>%
+    sprintf("%02d", .))][position != "00"][
+      , .N, by = .(iter, position)]
+
+p <- ggplot(d, aes(N, fill = position)) +
+  geom_histogram(bins = 30) +
+  scale_fill_discrete(guide = FALSE) +
+  facet_wrap(~position)
+p
+p %>% ggsave(filename = "img/position_dist_facet_5p.png",
+             width = 10, height = 8)
+
+d2 <- d[, .(N_ev = mean(N)), by = .(position)]
+p <- ggplot(d2, aes(position, N_ev)) +
+  geom_bar(stat = "identity", color = "white") +
+  scale_x_discrete(limits = rev(levels(d$position %>% factor))) +
+  scale_y_continuous(breaks = seq(0, 20, 1)) +
+  labs(title = "Expected value of times in board positions in a game, 4 players",
+       subtitle = "(10,000 iters simulation)") +
+  coord_flip()
+p
+p %>% ggsave(filename = "img/position_dist_5p.png",
+             width = 6, height = 8)
+```
+
+
+$P(贏的機率 \mid 首次擲骰子點數)$
+
+```{r first roll 5p, fig.width = 8, fig.height = 5}
+d <- turn_5p[turn == 1, .(iter, turn, dice_roll)][
+  iter_5p, .(iter,  first_roll = dice_roll, win = (winner == "A")), 
+  on = .(iter)][
+    , .(win_prob = mean(win)), by = .(first_roll)]
+
+p <- ggplot(d, aes(first_roll, win_prob)) +
+  geom_bar(stat = "identity") +
+  scale_x_continuous(breaks = seq(2, 12, 1)) +
+  labs(title = "Winning probability by first dice roll, 4 players",
+       subtitle = "(10,000 iters simulation, player 'A')")
+
+p
+p %>% ggsave(filename = "img/win_first_roll_5p.png",
              width = 8, height = 5)
 ```
