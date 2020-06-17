@@ -59,7 +59,7 @@ p <- ggplot(iter_2p, aes(end_rounds)) +
   theme_light()
 p
 p %>% ggsave(filename = "img/rounds_dist_2p.png",
-             width = 10, height = 6)
+             width = 10, height = 6, dpi = 300, dpi = 300)
 
 iter_2p[, max(end_rounds)]  # max rounds
 iter_2p[, min(end_rounds)]  # min rounds
@@ -73,7 +73,7 @@ p <- ggplot(iter_2p, aes(winner)) +
   theme_light()
 p
 p %>% ggsave(filename = "img/winer_2p.png",
-             width = 4, height = 4)
+             width = 4, height = 4, dpi = 300)
 ```
 
 ```{r turn 2p, fig.width = 6, fig.height = 8}
@@ -89,7 +89,7 @@ p <- ggplot(d, aes(N, fill = position)) +
   facet_wrap(~position)
 
 p %>% ggsave(filename = "img/position_dist_facet_2p.png",
-             width = 10, height = 8)
+             width = 10, height = 8, dpi = 300)
 
 d2 <- d[, .(N_ev = mean(N)), by = .(position)]
 p <- ggplot(d2, aes(position, N_ev)) +
@@ -101,7 +101,7 @@ p <- ggplot(d2, aes(position, N_ev)) +
   coord_flip()
 p
 p %>% ggsave(filename = "img/position_dist_2p.png",
-             width = 6, height = 8)
+             width = 6, height = 8, dpi = 300)
 ```
 
 $P(贏的機率 \mid 首次擲骰子點數)$
@@ -118,7 +118,7 @@ p <- ggplot(d, aes(first_roll, win_prob)) +
   labs(title = "Winning probability by first dice roll, 2 players",
        subtitle = "(10,000 iters simulation, player 'A')")
 p %>% ggsave(filename = "img/win_first_roll_2p.png",
-             width = 8, height = 5)
+             width = 8, height = 5, dpi = 300)
 ```
 
 ## 3P
@@ -132,7 +132,7 @@ p <- ggplot(iter_3p, aes(end_rounds)) +
   theme_light()
 p
 p %>% ggsave(filename = "img/rounds_dist_3p.png",
-             width = 10, height = 6)
+             width = 10, height = 6, dpi = 300)
 
 iter_3p[, max(end_rounds)]  # max rounds
 iter_3p[, min(end_rounds)]  # min rounds
@@ -147,7 +147,7 @@ p <- ggplot(d, aes(winner)) +
   theme_light()
 p
 p %>% ggsave(filename = "img/winer_3p.png",
-             width = 4, height = 4)
+             width = 4, height = 4, dpi = 300)
 ```
 
 ```{r turn 3p, fig.width=6, fig.height=8}
@@ -194,7 +194,7 @@ p <- ggplot(d, aes(first_roll, win_prob)) +
        subtitle = "(10,000 iters simulation, player 'A')")
 p
 p %>% ggsave(filename = "img/win_first_roll_3p.png",
-             width = 8, height = 5)
+             width = 8, height = 5, dpi = 300)
 ```
 
 ## 4P
@@ -208,7 +208,7 @@ p <- ggplot(iter_4p, aes(end_rounds)) +
   theme_light()
 p
 p %>% ggsave(filename = "img/rounds_dist_4p.png",
-             width = 10, height = 6)
+             width = 10, height = 6, dpi = 300)
 
 iter_4p[, max(end_rounds)]  # max rounds
 iter_4p[, min(end_rounds)]  # min rounds
@@ -223,7 +223,7 @@ p <- ggplot(d, aes(winner)) +
   theme_light()
 p
 p %>% ggsave(filename = "img/winer_4p.png",
-             width = 4, height = 4)
+             width = 4, height = 4, dpi = 300)
 ```
 
 ```{r turn 4p, fig.width=6, fig.height=8}
@@ -239,7 +239,7 @@ p <- ggplot(d, aes(N, fill = position)) +
   facet_wrap(~position)
 p
 p %>% ggsave(filename = "img/position_dist_facet_4p.png",
-             width = 10, height = 8)
+             width = 10, height = 8, dpi = 300)
 
 d2 <- d[, .(N_ev = mean(N)), by = .(position)]
 p <- ggplot(d2, aes(position, N_ev)) +
@@ -251,7 +251,7 @@ p <- ggplot(d2, aes(position, N_ev)) +
   coord_flip()
 p
 p %>% ggsave(filename = "img/position_dist_4p.png",
-             width = 6, height = 8)
+             width = 6, height = 8, dpi = 300)
 ```
 
 
@@ -270,7 +270,7 @@ p <- ggplot(d, aes(first_roll, win_prob)) +
        subtitle = "(10,000 iters simulation, player 'A')")
 p
 p %>% ggsave(filename = "img/win_first_roll_4p.png",
-             width = 8, height = 5)
+             width = 8, height = 5, dpi = 300)
 ```
 
 ## 5P
@@ -284,7 +284,7 @@ p <- ggplot(iter_5p, aes(end_rounds)) +
   theme_light()
 p
 p %>% ggsave(filename = "img/rounds_dist_5p.png",
-             width = 10, height = 6)
+             width = 10, height = 6, dpi = 300)
 
 iter_5p[, max(end_rounds)]  # max rounds
 iter_5p[, min(end_rounds)]  # min rounds
@@ -299,7 +299,7 @@ p <- ggplot(d, aes(winner)) +
   theme_light()
 p
 p %>% ggsave(filename = "img/winer_5p.png",
-             width = 4, height = 4)
+             width = 4, height = 4, dpi = 300)
 ```
 
 ```{r turn 5p, fig.width=6, fig.height=8}
@@ -315,7 +315,7 @@ p <- ggplot(d, aes(N, fill = position)) +
   facet_wrap(~position)
 p
 p %>% ggsave(filename = "img/position_dist_facet_5p.png",
-             width = 10, height = 8)
+             width = 10, height = 8, dpi = 300)
 
 d2 <- d[, .(N_ev = mean(N)), by = .(position)]
 p <- ggplot(d2, aes(position, N_ev)) +
@@ -327,7 +327,7 @@ p <- ggplot(d2, aes(position, N_ev)) +
   coord_flip()
 p
 p %>% ggsave(filename = "img/position_dist_5p.png",
-             width = 6, height = 8)
+             width = 6, height = 8, dpi = 300)
 ```
 
 
@@ -347,5 +347,5 @@ p <- ggplot(d, aes(first_roll, win_prob)) +
 
 p
 p %>% ggsave(filename = "img/win_first_roll_5p.png",
-             width = 8, height = 5)
+             width = 8, height = 5, dpi = 300)
 ```
